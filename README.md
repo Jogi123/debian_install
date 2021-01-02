@@ -1,1 +1,1 @@
-a script to automatically configure a fresh installation of debian based GNU/Linux
+a script to automatically configure a fresh installation of Debian based GNU/Linux
