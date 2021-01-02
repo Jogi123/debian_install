@@ -20,9 +20,9 @@ fi
 apt install openssh-server
 systemctl enable openssh-server
 systemctl start openssh-server
-ssh-keygen
 
-# copy newly created keys to a server
+# create keys and copy them to a server
+ssh-keygen
 echo "Do you want to copy your key to remote server? [y/n]"
 read copy
 if [ $copy = "y" ]
