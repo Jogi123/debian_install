@@ -19,7 +19,7 @@ then
   systemctl enable openssh-server
   systemctl start openssh-server
   
-  # secure ssh (set root login and password authentication to no
+  # secure ssh (set root login and password authentication to no)
   sed -e "s/#PermitRootLogin yes/PermitRootLogin no/g" /etc/ssh/sshd_config
   sed -e "s/#PasswordAuthentication yes/PasswordAuthentication no/g" /etc/ssh/sshd_config
 fi
