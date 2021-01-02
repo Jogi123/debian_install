@@ -13,13 +13,16 @@ echo "Do you want to open port 22(ssh) [y/n]?"
 read wish
 if [ $wish = "y" ]
 then
+  # install openssh and open port 22
   ufw limit 22
+  apt install openssh-server
+  systemctl enable openssh-server
+  systemctl start openssh-server
+  
+  # secure ssh
+  sed -i "s/#PermitRootLogin yes/PermitRootLogin no/g" /etc/ssh/sshd_config
+  sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/g" /etc/ssh/sshd_config
 fi
-
-# insall openssh and create keys
-apt install openssh-server
-systemctl enable openssh-server
-systemctl start openssh-server
 
 # create keys and copy them to a server
 ssh-keygen
