@@ -1,26 +1,28 @@
 #!/bin/bash
 
+# update system
 apt update
 apt upgrade
 
+# enable firewall and set rules
 apt install ufw
 ufw default allow outgoing
 ufw default deny incoming
 ufw enable
-
 echo "Do you want to open port 22(ssh) [y/n]?"
 read wish
-
 if [ $wish = "y" ]
 then
   ufw limit 22
 fi
 
+# insall openssh and create keys
 apt install openssh-server
 systemctl enable openssh-server
 systemctl start openssh-server
 ssh-keygen
 
+# copy newly created keys to a server
 echo "Do you want to copy your key to remote server? [y/n]"
 read copy
 if [ $copy = "y" ]
