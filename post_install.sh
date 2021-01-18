@@ -36,3 +36,6 @@ then
   read username
   cat ~/.ssh/id_rsa.pub | ssh $username@$address 'cat >> .ssh/authorized_keys && echo "Key copied"'
 fi
+
+# allow non root user/members of the wireshark group to capture traffic
+dpkg-reconfigure wireshark-common
