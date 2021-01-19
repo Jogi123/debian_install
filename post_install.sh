@@ -25,11 +25,11 @@ then
 fi
 
 # create keys and copy them to a server
-ssh-keygen
 echo "Do you want to copy your key to remote server? [y/n]"
 read copy
 if [ $copy = "y" ]
 then
+  ssh-keygen
   echo "Type in the server address you want to copy your key to: "
   read address
   echo "Type in the username for $address: "
