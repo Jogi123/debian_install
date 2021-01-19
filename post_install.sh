@@ -25,7 +25,7 @@ then
 fi
 
 # create keys and copy them to a server
-echo "Do you want to copy your key to remote server? [y/n]"
+echo "Do you want to create ssh keys and copy them to a remote server of your choice? [y/n]"
 read copy
 if [ $copy = "y" ]
 then
